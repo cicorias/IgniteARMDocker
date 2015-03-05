@@ -3,7 +3,7 @@
 # http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
 
 FROM       ubuntu:latest
-MAINTAINER Docker
+MAINTAINER Shawn Cicoria shawn.cicoria@microsoft.com
 
 # Installation:
 # Import MongoDB public GPG key AND create a MongoDB list file

@@ -1,6 +1,6 @@
 #!/bin/sh
 cd mongo
-docker build -t scicoria/mongo:0.1
+docker build -t scicoria/mongo:0.1 .
 cd ../seed
 docker build -t scicoria/seedmongo:0.1 .
 cd ../orderService
