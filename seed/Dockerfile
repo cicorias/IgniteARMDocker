@@ -14,10 +14,6 @@ RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
 # Update apt-get sources AND install MongoDB
 RUN apt-get update && apt-get install -y mongodb-org
 
-
-# cleanup as this is just a demo
-RUN sudo rm -r /data/db
-
 # Create the MongoDB data directory
 RUN mkdir -p -m 777 /data/db
 
