@@ -33,4 +33,5 @@ EXPOSE 27017
 VOLUME /data/db
 
 # Set /usr/bin/mongod as the dockerized entry-point application
-ENTRYPOINT ["/usr/bin/mongod"]
+#ENTRYPOINT ["/usr/bin/mongod"]
+ENTRYPOINT ["/tmp/mongorun.sh"]
