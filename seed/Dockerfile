@@ -22,6 +22,7 @@ RUN mkdir -p -m 777 /tmp
 COPY mongodb.catalog.json /tmp/mongodb.catalog.json
 COPY mongodb.dealers.json /tmp/mongodb.dealers.json
 COPY mongodb.quotes.json /tmp/mongodb.quotes.json
+COPY mongorun.sh /tmp/mongorun.sh
 
 WORKDIR /tmp
 
