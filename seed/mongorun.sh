@@ -4,4 +4,4 @@
 /usr/bin/mongoimport -d ordering -c quotes < /tmp/mongodb.quotes.json
 
 
-/usr/bin/mongod
+/usr/bin/mongod --smallfiles
