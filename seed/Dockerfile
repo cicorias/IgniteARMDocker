@@ -3,7 +3,7 @@
 # http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
 
 FROM       ubuntu:latest
-MAINTAINER Niklas Gustafsson niklasg@microsoft.com
+MAINTAINER Shawn Cicoria shawn.cicoria@microsoft.com
 
 ADD mongorun.sh .
 # Installation:
@@ -14,26 +14,27 @@ RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
 # Update apt-get sources AND install MongoDB
 RUN apt-get update && apt-get install -y mongodb-org
 
-# Create the MongoDB data directory
-RUN mkdir -p /data/db
 
-RUN mkdir -p /tmp
+# cleanup as this is just a demo
+RUN sudo rm -r /data/db
+
+# Create the MongoDB data directory
+RUN mkdir -p -m 777 /data/db
+
+RUN mkdir -p -m 777 /tmp
 
 COPY mongodb.catalog.json /tmp/mongodb.catalog.json
 COPY mongodb.dealers.json /tmp/mongodb.dealers.json
 COPY mongodb.quotes.json /tmp/mongodb.quotes.json
-COPY mongorun.sh /tmp/mongorun.sh
 
 WORKDIR /tmp
 
-RUN chmod +x /tmp/mongorun.sh
 RUN chmod +x ./mongorun.sh
+
 # Expose port #27017 from the container to the host
 EXPOSE 27017
 
 VOLUME /data/db
 
-# Set /usr/bin/mongod as the dockerized entry-point application
-#ENTRYPOINT ["/usr/bin/mongod"]
 ENTRYPOINT ["./mongorun.sh"]
 
