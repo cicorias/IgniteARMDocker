@@ -2,7 +2,8 @@
 
 
 # Initialize a mongo data folder and logfile
-mkdir -p /data/db
+sudo rm -r /data/db  1>/dev/null 2>/dev/null
+mkdir -p -m 777 /data/db 
 touch /data/db/mongodb.log
 echo step 1
 # Start mongodb with logging
