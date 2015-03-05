@@ -5,6 +5,7 @@
 FROM       ubuntu:latest
 MAINTAINER Niklas Gustafsson niklasg@microsoft.com
 
+ADD mongorun.sh .
 # Installation:
 # Import MongoDB public GPG key AND create a MongoDB list file
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
@@ -26,7 +27,7 @@ COPY mongorun.sh /tmp/mongorun.sh
 WORKDIR /tmp
 
 RUN chmod +x /tmp/mongorun.sh
-
+RUN chmod +x ./mongorun.sh
 # Expose port #27017 from the container to the host
 EXPOSE 27017
 
@@ -34,5 +35,5 @@ VOLUME /data/db
 
 # Set /usr/bin/mongod as the dockerized entry-point application
 #ENTRYPOINT ["/usr/bin/mongod"]
-ENTRYPOINT ["/tmp/mongorun.sh"]
+ENTRYPOINT ["./mongorun.sh"]
 
