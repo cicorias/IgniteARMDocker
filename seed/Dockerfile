@@ -1,5 +1,5 @@
 
-FROM       scratch
+FROM      ubuntu:latest 
 MAINTAINER Shawn Cicoria shawn.cicoria@microsoft.com
 
 RUN mkdir -p /tmp
