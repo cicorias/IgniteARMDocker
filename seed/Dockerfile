@@ -6,7 +6,9 @@ RUN mkdir -p /tmp
 
 
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-RUN sudo apt-get install -y mongodb-org-shell
+RUN echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+RUN sudo apt-get update
+#RUN sudo apt-get install -y mongodb-org-shell
 RUN sudo apt-get install -y mongodb-org-tools
 
 COPY mongodb.catalog.json /tmp/mongodb.catalog.json
