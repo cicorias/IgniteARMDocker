@@ -8,5 +8,5 @@ ADD Web.tar $WEB_HOME/
 COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 8000
-CMD ["nginx"]
+CMD ["nginx", "-g", "daemon off;"]
 
